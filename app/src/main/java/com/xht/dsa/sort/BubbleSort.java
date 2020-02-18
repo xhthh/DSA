@@ -39,7 +39,7 @@ public class BubbleSort {
         }
     }
 
-    public static void sort(int[] array) {
+    public static void sort3(int[] array) {
         //记录最后一次交换的位置
         int lastExchangeIndex = 0;
         //无序数列的边界，每次比较只需要比到这里为止
@@ -64,21 +64,23 @@ public class BubbleSort {
             if (isSorted) {
                 break;
             }
-
-
         }
     }
 
     public static void main(String[] args) {
         int[] array = new int[]{5, 8, 6, 3, 9, 2, 1, 7};
 
-        System.out.println(Arrays.toString(array));
+//        System.out.println(Arrays.toString(array));
+//
+//        sort1(array);
+//
+//        System.out.println(Arrays.toString(array));
+//
+//        sort2(array);
+//
+//        System.out.println(Arrays.toString(array));
 
-        sort1(array);
-
-        System.out.println(Arrays.toString(array));
-
-        sort2(array);
+        sort3(array);
 
         System.out.println(Arrays.toString(array));
     }
