@@ -1,49 +1,12 @@
 package com.xht.dsa.arithmetic.DynamicProgramming;
 
+/**
+ * 金矿问题
+ */
 public class Test1 {
 
     public static void main(String[] args) {
 
-        int num = f(4);
-
-        //System.out.println("步数=" + num);
-
-        testGold();
-
-    }
-
-
-    /**
-     * 爬台阶问题，递归是自顶向下
-     * <p>
-     * 现在自底向上迭代
-     *
-     * @param n
-     * @return
-     */
-    public static int f(int n) {
-        if (n == 1) {
-            return 1;
-        }
-
-        if (n == 2) {
-            return 2;
-        }
-
-        //a保存倒数第二个子状态数据，b保存倒数第一个子状态数据，temp保存当前状态数据
-        int a = 1, b = 2;
-        int temp = a + b;
-
-        for (int i = 3; i <= n; i++) {
-            temp = a + b;
-            a = b;
-            b = temp;
-        }
-
-        return temp;
-    }
-
-    public static void testGold() {
         int w = 10;
         int[] p = {5, 5, 3, 4, 3};
         int[] g = {400, 500, 200, 300, 350};
@@ -55,6 +18,7 @@ public class Test1 {
 
 
         System.out.println("最大采金量==" + num);
+
     }
 
     /**
@@ -136,20 +100,20 @@ public class Test1 {
      */
     public static int getBestGoldMiningV3(int w, int[] p, int[] g) {
         //创建当前结果
-        int[] resutls = new int[w + 1];
+        int[] results = new int[w + 1];
 
         //填充一维数组
         for (int i = 1; i <= g.length; i++) {
             for (int j = w; j >= 1; j--) {
                 if (j >= p[i - 1]) {
-                    resutls[j] = Math.max(resutls[j],
-                            resutls[j - p[i - 1]] + g[i - 1]);
+                    results[j] = Math.max(results[j],
+                            results[j - p[i - 1]] + g[i - 1]);
                 }
             }
         }
 
         //返回最后1个格子的值
-        return resutls[w];
+        return results[w];
     }
 
 }
