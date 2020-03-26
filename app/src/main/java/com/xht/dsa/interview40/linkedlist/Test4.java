@@ -24,16 +24,19 @@ public class Test4 {
         ListNode node6 = new ListNode(8);
         ListNode node7 = new ListNode(1);
         node1.next = node2;
-        node2.next = node3;
-        node3.next = node4;
-        node4.next = node5;
-        node5.next = node6;
-        node6.next = node7;
-        node7.next = node4;
+        node2.next = node1;
+//        node3.next = node4;
+//        node4.next = node5;
+//        node5.next = node6;
+//        node6.next = node7;
+//        node7.next = node4;
 
 
         System.out.println("isCycle1=" + isCycle1(node1));
-        System.out.println("isCycle2=" + isCycle1(node2));
+        System.out.println("isCycle2=" + isCycle2(node2));
+
+        ListNode entry = entryNodeOfLoop(node1);
+        System.out.println("entry=" + entry.val);
     }
 
     /*
@@ -62,7 +65,7 @@ public class Test4 {
         Set<ListNode> set = new HashSet<>();
 
         while (node != null) {
-            if(set.contains(node)) {
+            if (set.contains(node)) {
                 return true;
             } else {
                 set.add(node);
@@ -73,6 +76,49 @@ public class Test4 {
 
         return false;
     }
+
+    /*
+        p1走一步，p2走两步
+
+        设起点到入环点，距离 D
+        入环点到相遇点，距离 S1
+        相遇点到入环点，距离 S2
+
+        2*(D + S1) = D + S1 + n(S1 + S2);
+
+        D = (n-1)(S1+S2) + S2
+
+        即从链表头结点到入环点的距离，等于从首次相遇点绕环n-1圈再回到入环点的距离。
+        这样一来，只要把其中一个指针放回到头节点位置，另一个指针保持在首次相遇点，
+        两个指针都是每次向前走1步。那么，它们最终相遇的节点，就是入环节点。
+     */
+    public static ListNode entryNodeOfLoop(ListNode node) {
+
+        ListNode p1 = node;
+        ListNode p2 = node;
+
+        while (p2 != null && p2.next != null) {
+            p1 = p1.next;
+            p2 = p2.next.next;
+
+            if (p1 == p2) {
+                p1 = node;
+
+                while (true) {
+                    p1 = p1.next;
+                    p2 = p2.next;
+                    if (p1 == p2) {
+                        return p1;
+                    }
+                }
+
+            }
+
+        }
+
+        return null;
+    }
+
 
 
 }
