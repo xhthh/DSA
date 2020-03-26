@@ -1,4 +1,4 @@
-package com.xht.dsa.interview40;
+package com.xht.dsa.interview40.linkedlist;
 
 import com.xht.dsa.interview40.bean.ListNode;
 

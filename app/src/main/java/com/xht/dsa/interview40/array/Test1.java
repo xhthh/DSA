@@ -1,4 +1,4 @@
-package com.xht.dsa.interview40;
+package com.xht.dsa.interview40.array;
 
 import java.util.Arrays;
 import java.util.HashMap;
