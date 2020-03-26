@@ -2,6 +2,9 @@ package com.xht.dsa.interview40;
 
 import com.xht.dsa.interview40.bean.ListNode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Test4 {
 
     /*
@@ -26,28 +29,46 @@ public class Test4 {
         node4.next = node5;
         node5.next = node6;
         node6.next = node7;
-        //node7.next = node4;
+        node7.next = node4;
 
-        boolean isCycle = isCycle(node1);
 
-        System.out.println("isCycle=" + isCycle);
+        System.out.println("isCycle1=" + isCycle1(node1));
+        System.out.println("isCycle2=" + isCycle1(node2));
     }
 
-    private static boolean isCycle(ListNode node) {
+    /*
+        双指针
+     */
+    private static boolean isCycle1(ListNode node) {
         ListNode p1 = node;
         ListNode p2 = node;
 
-        while (p1 != null && p2 != null) {
+        while (p2 != null && p2.next != null) {
             p1 = p1.next;
-            if (p2.next != null) {
-                p2 = p2.next.next;
-            } else {
-                return false;
-            }
+            p2 = p2.next.next;
 
             if (p1 == p2) {
                 return true;
             }
+        }
+
+        return false;
+    }
+
+    /*
+        使用 HashSet
+     */
+    private static boolean isCycle2(ListNode node) {
+        Set<ListNode> set = new HashSet<>();
+
+        while (node != null) {
+            if(set.contains(node)) {
+                return true;
+            } else {
+                set.add(node);
+            }
+
+            node = node.next;
         }
 
         return false;
