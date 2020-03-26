@@ -1,5 +1,7 @@
 package com.xht.dsa.interview40;
 
+import com.xht.dsa.interview40.bean.ListNode;
+
 /**
  * Created by xht on 2020/3/25
  * 反转单链表
@@ -113,15 +115,6 @@ public class Test2 {
             node = node.next;
         }
         System.out.println();
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
     }
 
 }

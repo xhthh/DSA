@@ -1,5 +1,7 @@
 package com.xht.dsa.interview40;
 
+import com.xht.dsa.interview40.bean.ListNode;
+
 public class Test3 {
 
     /*
@@ -111,13 +113,5 @@ public class Test3 {
         System.out.println();
     }
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
 }
