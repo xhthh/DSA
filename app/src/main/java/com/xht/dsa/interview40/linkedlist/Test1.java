@@ -33,7 +33,7 @@ public class Test1 {
     /*
         因为是从尾到头，如果不能改变链表结构的话，可以用栈
      */
-    public static int[] traversal(ListNode node) {
+    private static int[] traversal(ListNode node) {
         Stack<ListNode> stack = new Stack<>();
 
         while (node != null) {

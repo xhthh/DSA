@@ -2,6 +2,8 @@ package com.xht.dsa.interview40.linkedlist;
 
 import com.xht.dsa.interview40.bean.ListNode;
 
+import static com.xht.dsa.interview40.linkedlist.Util.traversal;
+
 /**
  * Created by xht on 2020/3/25
  * 反转单链表
@@ -59,7 +61,7 @@ public class Test2 {
 
         进行循环...
      */
-    public static ListNode reverseList(ListNode node) {
+    private static ListNode reverseList(ListNode node) {
         ListNode prev = null;//保存先前的节点
         ListNode temp = null;//临时变量
 
@@ -96,7 +98,7 @@ public class Test2 {
         。。。。。
 
      */
-    public static ListNode reverse(ListNode head) {
+    private static ListNode reverse(ListNode head) {
         if(head == null || head.next == null) {
             return head;
         }
@@ -109,12 +111,6 @@ public class Test2 {
         return newHead;
     }
 
-    private static void traversal(ListNode node) {
-        while (node != null) {
-            System.out.print(node.val + "   ");
-            node = node.next;
-        }
-        System.out.println();
-    }
+
 
 }
