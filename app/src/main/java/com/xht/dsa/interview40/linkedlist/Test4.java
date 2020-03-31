@@ -24,18 +24,18 @@ public class Test4 {
         ListNode node6 = new ListNode(8);
         ListNode node7 = new ListNode(1);
         node1.next = node2;
-        node2.next = node1;
-//        node3.next = node4;
-//        node4.next = node5;
-//        node5.next = node6;
-//        node6.next = node7;
-//        node7.next = node4;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+        node5.next = node6;
+        node6.next = node7;
+        node7.next = node4;
 
 
         System.out.println("isCycle1=" + isCycle1(node1));
         System.out.println("isCycle2=" + isCycle2(node2));
 
-        ListNode entry = entryNodeOfLoop(node1);
+        ListNode entry = entryNodeOfLoop2(node1);
         System.out.println("entry=" + entry.val);
     }
 
@@ -92,7 +92,7 @@ public class Test4 {
         这样一来，只要把其中一个指针放回到头节点位置，另一个指针保持在首次相遇点，
         两个指针都是每次向前走1步。那么，它们最终相遇的节点，就是入环节点。
      */
-    public static ListNode entryNodeOfLoop(ListNode node) {
+    private static ListNode entryNodeOfLoop(ListNode node) {
 
         ListNode p1 = node;
         ListNode p2 = node;
@@ -120,5 +120,28 @@ public class Test4 {
     }
 
 
+    private static ListNode entryNodeOfLoop2(ListNode head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
 
+        ListNode fast = head;
+        ListNode slow = head;
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+
+            if (fast == slow) {
+                fast = head;
+                while (fast != slow) {
+                    fast = fast.next;
+                    slow = slow.next;
+                }
+                return fast;
+            }
+        }
+
+        return null;
+    }
 }
