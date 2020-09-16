@@ -51,26 +51,26 @@ public class Test2 {
         temp = 1结点.next(2结点)
         1结点.next=pre(null)
         pre = 1结点
-        node = 2结点
+        head = 2结点
 
         进行下一次循环node=2结点
         temp = 2结点.next(3结点)
         2结点.next=pre(1结点)=>即完成2->1
         pre = 2结点
-        node = 3结点
+        head = 3结点
 
         进行循环...
      */
-    private static ListNode reverseList(ListNode node) {
+    private static ListNode reverseList(ListNode head) {
         ListNode prev = null;//保存先前的节点
         ListNode temp = null;//临时变量
 
-        while (node != null) {
-            temp = node.next;
-            node.next = prev;
-            prev = node;
+        while (head != null) {
+            temp = head.next;
+            head.next = prev;
+            prev = head;
 
-            node = temp;
+            head = temp;
         }
 
         return prev;
