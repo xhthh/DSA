@@ -88,6 +88,9 @@
     如果Presenter过多地渲染了视图，往往会使得它与特定的视图的联系过于紧密。一旦视图需要变更，那么Presenter也需要变更了。
 
 8、使用设计模式的好处？说几种设计模式？
+    重用设计
+    支持变化，可扩展性好
+    结构清晰，便于理解
 
 
 1、onInterceptTouchEvent() return false后，事件还会交给该ViewGroup吗
@@ -1736,3 +1739,26 @@ post
 10、FlutterBoost框架的作用？它可能会有哪些问题？
 
 11、==和equals
+
+
+
+YY
+1、Java调H5  除了loadUrl() 还有什么方法
+
+2、RecyclerView嵌套RecyclerView  怎样处理
+
+3、CAS原子操作  AtomicInteger  多个线程 自增  结果是怎样
+
+4、转场动画 MotionLayout
+
+5、OkHttp的优化？压缩是从哪一个版本开始的？
+
+6、为什么卡顿？怎样从代码层面监测卡顿？
+
+7、怎样调试H5，确定是H5还是android的问题
+
+8、性能优化
+
+9、API 29 需要适配哪些
+
+10、
